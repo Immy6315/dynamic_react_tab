@@ -3,14 +3,18 @@ This is the idea where you can share data between all tabs. In this i have simpl
 
 
 **To create new tab**
-`newTab = e => {
+
+```
+newTab = e => {
         if (e.target.files && e.target.files.length > 0) {
             //if user have file then we need to open new tab with that image
             this.addTab(e.target.files[0])
         }
-    };`
-    
-`addTab = (e) => {
+    };
+```
+
+```
+addTab = (e) => {
         this.setState((state,props)=>{
             //cloning tab
             let tabList = cloneDeep(state.tabList);
@@ -37,9 +41,11 @@ This is the idea where you can share data between all tabs. In this i have simpl
             }
         })
         console.log('All images : ',this.state.images)
-    }`
+    }
+```
 
-`addImage = (img,id) => {
+```
+addImage = (img,id) => {
         this.setState((state)=>{
             //find if user update image in the same tab
             if(state.images.find(v => v.id == id)){
@@ -59,10 +65,14 @@ This is the idea where you can share data between all tabs. In this i have simpl
             }
         })
         this.setState({value: id})
-    }`
+    }
+```
     
 **Delete tab**
-`deleteTab = (e,closeTabId) => {
+
+
+```
+deleteTab = (e,closeTabId) => {
         e.stopPropagation();
         /*if user want to last tab remain in tab list it will not delete if you want to delete it too then you can remove this if statement*/
         if(this.state.tabList.length === 1){
@@ -100,13 +110,17 @@ This is the idea where you can share data between all tabs. In this i have simpl
                 tabList
             })
         });
-    }`
+    }
+```
     
 **When user click on different tab.**
 
-`handleTabChange = (event, value) => {
+
+```
+handleTabChange = (event, value) => {
         //when user select tab need to render again with tab selected id
         this.setState({ value });   
-    }`
+    }
+```
     
 **Remaining Logic you can find on files.**
